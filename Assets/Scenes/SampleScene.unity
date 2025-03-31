@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.003995994, g: 0.00021794412, b: 0.000000051514956, a: 1}
+  m_IndirectSpecularColor: {r: 0.003995989, g: 0.00021794412, b: 0.00000005151354, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 116666289}
   m_Layer: 0
   m_Name: JUGADOR
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1500,9 +1500,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   a: {fileID: 396696631}
   b: {fileID: 283727933}
+  c: {fileID: 116666287}
   enemigo: {fileID: 0}
   agent: {fileID: 1235241513}
   vision: {fileID: 465479297}
+  fuerzaDisparar: 20
+  bala: {fileID: 1654070362429010875, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
+  jugador: {fileID: 116666283}
 --- !u!195 &1235241513
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2188,6 +2192,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038892470}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &7599798867520047553
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1654070362429010875, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
+      propertyPath: m_Name
+      value: Bala
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426945962901955882, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.11458206
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426945962901955882, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426945962901955882, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -30.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426945962901955882, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426945962901955882, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426945962901955882, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426945962901955882, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426945962901955882, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426945962901955882, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426945962901955882, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de34ee861d79ead4a9ee5cc83cc903ae, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2199,3 +2260,4 @@ SceneRoots:
   - {fileID: 116666287}
   - {fileID: 963194228}
   - {fileID: 312829197}
+  - {fileID: 7599798867520047553}

@@ -6,10 +6,12 @@ using UnityEngine.AI;
 // Constructor para VIGILAR
 public class Vigilar : Estado
 {
-    public Vigilar() : base()
+    public Vigilar(EnemigoIA enemigo) : base()
     {
         Debug.Log("VIGILAR");
         nombre = ESTADO.VIGILAR; // Guardamos el nombre del estado en el que nos encontramos.
+        inicializarVariables(enemigo);
+
     }
 
     public override void Entrar()
@@ -22,9 +24,6 @@ public class Vigilar : Estado
 
     public override void Actualizar()
     {
-        RaycastHit hit;
-        Vector3 origen = enemigoIA.vision.transform.position;
-        Vector3 direccion = enemigoIA.vision.transform.forward;
 
         // Le decimos que se vaya moviendo y patrullando...
         if (Vector3.Distance(enemigoIA.enemigo.transform.position, enemigoIA.a.transform.position) <= 3)
@@ -39,14 +38,9 @@ public class Vigilar : Estado
 
         }
 
-        if (Physics.Raycast(origen, direccion, out hit, 10f))
-        {
-            Debug.Log("El rayo impactó contra: " + hit.collider.name);
-        }
-
         if (PuedeVerJugador())
         {
-            siguienteEstado = new Atacar();
+            siguienteEstado = new Atacar(enemigoIA);
             faseActual = EVENTO.SALIR; // Cambiamos de FASE ya que pasamos de VIGILAR a ATACAR.
         }
     }
@@ -60,6 +54,19 @@ public class Vigilar : Estado
     // Puede el NPC ver el jugador?
     public bool PuedeVerJugador()
     {
+        RaycastHit hit;
+        Vector3 origen = enemigoIA.vision.transform.position;
+        Vector3 direccion = enemigoIA.vision.transform.forward;
+
+        if (Physics.Raycast(origen, direccion, out hit, 10f))
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                return true;
+            }
+            Debug.Log("El rayo impactó contra: " + hit.collider.name);
+        }
+
         // ...        
         return false; // DE MOMENTO NO
     }
