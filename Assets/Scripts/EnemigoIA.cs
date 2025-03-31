@@ -10,6 +10,7 @@ public class EnemigoIA: MonoBehaviour
     public Transform b;
     public GameObject enemigo;
     public NavMeshAgent agent;
+    public GameObject vision;
 
     void Start()
     {

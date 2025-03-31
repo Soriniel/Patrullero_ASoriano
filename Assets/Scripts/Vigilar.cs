@@ -22,8 +22,12 @@ public class Vigilar : Estado
 
     public override void Actualizar()
     {
+        RaycastHit hit;
+        Vector3 origen = enemigoIA.vision.transform.position;
+        Vector3 direccion = enemigoIA.vision.transform.forward;
+
         // Le decimos que se vaya moviendo y patrullando...
-        if(Vector3.Distance(enemigoIA.enemigo.transform.position, enemigoIA.a.transform.position) <= 3)
+        if (Vector3.Distance(enemigoIA.enemigo.transform.position, enemigoIA.a.transform.position) <= 3)
         {
             enemigoIA.agent.destination = enemigoIA.b.position;
 
@@ -33,6 +37,11 @@ public class Vigilar : Estado
         {
             enemigoIA.agent.destination = enemigoIA.a.position;
 
+        }
+
+        if (Physics.Raycast(origen, direccion, out hit, 10f))
+        {
+            Debug.Log("El rayo impactó contra: " + hit.collider.name);
         }
 
         if (PuedeVerJugador())
